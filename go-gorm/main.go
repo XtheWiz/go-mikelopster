@@ -71,6 +71,12 @@ func main() {
 	}
 
 	db.AutoMigrate(&Book{}, &Publisher{}, &Author{}, &AuthorBook{})
+
+	publisher := Publisher{
+		Details: "Publisher Details",
+		Name:    "Publisher Name",
+	}
+	_ = createPublisher(db, &publisher)
 }
 
 func createPublisher(db *gorm.DB, publisher *Publisher) error {
